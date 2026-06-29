@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario - Animación Avanzada</title>
+    <link rel="stylesheet" href="../css/estilos_cuestionario.css">
+</head>
+
+<body>
+    <div id="os-window">
+        <div class="border-line b-top"></div>
+        <div class="border-line b-right"></div>
+        <div class="border-line b-bottom"></div>
+        <div class="border-line b-left"></div>
+
+        <div class="window-content">
+            <div class="window-header">
+                <span>LOVE</span>
+                <div class="controls">
+                    <div class="control-box c1" id="btn-minimize">-</div>
+                    <div class="control-box c2" id="btn-maximize">□</div>
+                    <div class="control-box c3" id="btn-close">x</div>
+                </div>
+            </div>
+
+            <div class="window-sub-header">
+                <span class="heart-item h3">❤️</span>
+                <span class="dot d1"> • </span>
+                <span class="heart-item h2">❤️</span>
+                <span class="dot d2"> • </span>
+                <span class="heart-item h1">❤️</span>
+            </div>
+
+            <div class="window-body">
+                <p class="question-text" id="main-question">
+                    Feliz primer mes, mi amor ♡<br>
+                    ¿Todavía me quieres?
+                </p>
+
+                <div class="photo-placeholder" id="photo-container">
+                    <img src="../recursos/foto1.jpg" alt="Nuestra Foto" class="couple-photo" id="main-photo">
+                </div>
+
+                <div class="action-buttons">
+                    <div class="btn-anim-wrapper anim-yes" id="btn-yes-wrapper">
+                        <div class="yes-wrapper">
+                            <button class="btn" id="btn-yes">YES</button>
+                        </div>
+                    </div>
+
+                    <div class="btn-anim-wrapper anim-no" id="btn-no-wrapper">
+                        <button class="btn" id="btn-no">NO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="image-modal">
+        <div class="modal-frame">
+            <span class="close-modal">&times;</span>
+            <img src="../recursos/foto1.jpg" alt="Foto Ampliada" id="modal-photo">
+        </div>
+    </div>
+
+    <audio id="musica-fondo" loop>
+        <source src="../recursos/And I Love Her.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script src="../javascript/script_cuestionario.js"></script>
+</body>
+
+</html>

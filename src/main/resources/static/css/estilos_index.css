@@ -1,0 +1,239 @@
+:root {
+    --primary-border: #d7747b;
+    --flap-color: #f1b3bc;
+    --bow-color: #b06b42;
+    --arrow-stick: #6b4423;
+    --bg-gradient-start: #ffdde1;
+    --bg-gradient-end: #fff9f9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--bg-gradient-start) 0%, #fff4f4 30%, var(--bg-gradient-end) 100%);
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    position: relative;
+}
+
+.bg-heart {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0.6;
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 10;
+}
+
+#envelope-wrapper {
+    text-align: center;
+    position: relative;
+}
+
+#envelope {
+    width: 220px;
+    height: 140px;
+    background-color: #fffafb;
+    border: 6px solid var(--primary-border);
+    border-radius: 4px;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08), 0 8px 0px rgba(215, 116, 123, 0.15);
+    overflow: hidden;
+}
+
+.flap-bottom {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    width: 170px;
+    height: 170px;
+    background-color: transparent;
+    border: 6px solid var(--primary-border);
+    transform: translateX(-50%) scaleY(0.7) rotate(45deg);
+    z-index: 1;
+}
+
+.flap-top {
+    position: absolute;
+    top: -95px;
+    left: 50%;
+    width: 170px;
+    height: 170px;
+    background-color: var(--flap-color);
+    border: 6px solid var(--primary-border);
+    transform: translateX(-50%) scaleY(0.7) rotate(45deg);
+    z-index: 2;
+}
+
+#envelope-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    z-index: 3;
+    transition: opacity 0.1s;
+}
+
+.title {
+    color: #8b4545;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-top: 25px;
+}
+
+.vibrate-anim {
+    animation: vibrate 0.1s linear 5;
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(-3px, 2px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translate(3px, -2px) rotate(2deg);
+    }
+
+    75% {
+        transform: translate(-3px, -2px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.mini-heart-explosion {
+    position: absolute;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 20;
+    animation: explode 0.5s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0.2);
+        opacity: 0;
+    }
+}
+
+#bow-area {
+    position: relative;
+    width: 260px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+    cursor: grab;
+}
+
+#bow-area:active {
+    cursor: grabbing;
+}
+
+#bow {
+    width: 200px;
+    height: 50px;
+    border: 12px solid var(--bow-color);
+    border-top: none;
+    border-radius: 0 0 100px 100px;
+    position: absolute;
+    bottom: 40px;
+}
+
+#string {
+    position: absolute;
+    top: 0;
+    left: -6px;
+    right: -6px;
+    height: 4px;
+    background-color: #333;
+}
+
+#arrow {
+    position: absolute;
+    bottom: 90px;
+    width: 6px;
+    height: 90px;
+    background-color: var(--arrow-stick);
+    opacity: 0;
+    z-index: 5;
+}
+
+#arrow::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 18px solid #e63946;
+}
+
+#arrow::after {
+    content: "♥";
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+    color: var(--flap-color);
+    font-size: 38px;
+}
+
+.instructions {
+    color: #d7747b;
+    font-size: 15px;
+    font-weight: bold;
+}
